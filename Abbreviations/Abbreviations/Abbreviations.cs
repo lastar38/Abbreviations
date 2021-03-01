@@ -46,5 +46,35 @@ namespace Abbreviations
                 }
             }
         }
+
+        public int Count()
+        {
+            return _dict.Count();
+        }
+
+        public bool Remove(string 省略語)
+        {
+            if (_dict.ContainsKey(省略語))
+            {
+                _dict.Remove(省略語);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public IEnumerable<KeyValuePair<string, string>> Filter(int 文字数)
+        {
+            foreach (var item in _dict)
+            {
+                var key = item.Key.ToCharArray();
+                if(key.Length == 文字数)
+                {
+                    yield return item;
+                }
+            }
+        }
     }
 }

@@ -46,6 +46,21 @@ namespace Abbreviations
             {
                 Console.WriteLine("{0}={1}", item.Key, item.Value);
             }
+
+            Console.WriteLine(abbrs.Count());
+
+            if (abbrs.Remove("IOC"))
+            {
+                Console.WriteLine("削除しました");
+            }
+
+            Console.WriteLine(abbrs.Count());
+
+            foreach (var item in abbrs.Filter(3))
+            {
+                Console.WriteLine("{0}={1}", item.Key, item.Value);
+            }
+
         }
     }
 }
